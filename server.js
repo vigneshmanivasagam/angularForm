@@ -7,7 +7,12 @@ const express = require('express'),
       empRoutes = require('./expressRoutes/employeeRoute');
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB).then(
+mongoose.connect(config.DB,{
+  auth: {
+      user: 'angularforms',
+      password: 'dBzDG3IvrS78yrMCuyFGy5i0biVvxZIpFOfoP6cMTxluAKKF91LQd67g1Y4BI3wrTvtPmhuGcPABRvWuCt1xdQ=='
+    }
+}).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
   );
